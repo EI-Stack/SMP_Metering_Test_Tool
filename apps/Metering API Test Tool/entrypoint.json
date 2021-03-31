@@ -1,0 +1,6 @@
+{
+	"AppName": "Metering API Test Tool",
+	"AppIcon": "icon.jpg",
+	"EntryPoint": "Metering API Test Tool.exe",
+	"StartFromCurrentFolder": "true"
+}
