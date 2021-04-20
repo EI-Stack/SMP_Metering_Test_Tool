@@ -277,7 +277,7 @@ namespace poyu_test {
 			this->input_appName->Name = L"input_appName";
 			this->input_appName->Size = System::Drawing::Size(143, 22);
 			this->input_appName->TabIndex = 17;
-			this->input_appName->Text = L"Production Visualization";
+			this->input_appName->Text = L"iCAM";
 			// 
 			// label9
 			// 

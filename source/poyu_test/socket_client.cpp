@@ -248,7 +248,7 @@ int post_subscription_send(char* deviceName, char* deviceId, char* appName, char
 	char post_count_path[512] = "/dw/metering/subscription/raw";
 	//char post_count_data[512] = "{\"deviceName\":\"device1\",\"deviceId\":\"ede98537-18a7-5c7b-8581-812dc48c5c80\",\"appName\":\"Production Visualization\",\"appId\":\"8f14e45fceea167a5a36dedd4bea2543\",\"userName\":\"mirdc@iii.org.tw\",\"userId\":\"f6e98537-18b7-4c7b-8581-812dc48c5c80\",\"type\":\"count\",\"countName\":\"APInumber\",\"count\":100}";
 	char post_count_data[512] = "";
-	sprintf(post_count_data, "{\"deviceName\":\"%s\",\"deviceId\":\"%s\",\"appName\":\"%s\",\"appId\":\"%s\",\"userName\":\"%s\",\"userId\":\"%s\",\"type\":\"subscription/count/time\",\"year\":2021,\"month\":11}", deviceName, deviceId, appName, appID, userName, userID);
+	sprintf(post_count_data, "{\"deviceName\":\"%s\",\"deviceId\":\"%s\",\"appName\":\"%s\",\"appId\":\"%s\",\"userName\":\"%s\",\"userId\":\"%s\",\"type\":\"subscription\",\"year\":2021,\"month\":5}", deviceName, deviceId, appName, appID, userName, userID);
 
 
 	httpCtx = libcurl_httpPostFunc(post_count_path, post_count_data);
