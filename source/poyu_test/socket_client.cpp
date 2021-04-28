@@ -189,14 +189,14 @@ FUNC_EXIT:
 
 
 
-int post_count_send(char* deviceName, char* deviceId, char* appName, char* appID, char* userName, char* userID)
+int post_count_send(char* deviceId, char* appName, char* appID, char* userID)
 {
 	struct HttpCtx *httpCtx = NULL;
 	int iReturn = 0;
 	char post_count_path[512] = "/dw/metering/count/raw";
 	//char post_count_data[512] = "{\"deviceName\":\"device1\",\"deviceId\":\"ede98537-18a7-5c7b-8581-812dc48c5c80\",\"appName\":\"Production Visualization\",\"appId\":\"8f14e45fceea167a5a36dedd4bea2543\",\"userName\":\"mirdc@iii.org.tw\",\"userId\":\"f6e98537-18b7-4c7b-8581-812dc48c5c80\",\"type\":\"count\",\"countName\":\"APInumber\",\"count\":100}";
 	char post_count_data[512] = "";
-	sprintf(post_count_data, "{\"deviceName\":\"%s\",\"deviceId\":\"%s\",\"appName\":\"%s\",\"appId\":\"%s\",\"userName\":\"%s\",\"userId\":\"%s\",\"type\":\"count\",\"countName\":\"APInumber\",\"count\":100}", deviceName, deviceId, appName, appID, userName, userID);
+	sprintf(post_count_data, "{\"deviceId\":\"%s\",\"appName\":\"%s\",\"appId\":\"%s\",\"userId\":\"%s\",\"type\":\"count\",\"countName\":\"APInumber\",\"count\":100}",  deviceId, appName, appID,  userID);
 
 
 	httpCtx = libcurl_httpPostFunc(post_count_path, post_count_data);
@@ -215,14 +215,14 @@ FUNC_EXIT:
 }
 
 
-int post_time_send(char* deviceName, char* deviceId, char* appName, char* appID, char* userName, char* userID)
+int post_time_send(char* deviceId, char* appName, char* appID, char* userID)
 {
 	struct HttpCtx *httpCtx = NULL;
 	int iReturn = 0;
 	char post_count_path[512] = "/dw/metering/time/raw";
 	//char post_count_data[512] = "{\"deviceName\":\"device1\",\"deviceId\":\"ede98537-18a7-5c7b-8581-812dc48c5c80\",\"appName\":\"Production Visualization\",\"appId\":\"8f14e45fceea167a5a36dedd4bea2543\",\"userName\":\"mirdc@iii.org.tw\",\"userId\":\"f6e98537-18b7-4c7b-8581-812dc48c5c80\",\"type\":\"count\",\"countName\":\"APInumber\",\"count\":100}";
 	char post_count_data[512] = "";
-	sprintf(post_count_data, "{\"deviceName\":\"%s\",\"deviceId\":\"%s\",\"appName\":\"%s\",\"appId\":\"%s\",\"userName\":\"%s\",\"userId\":\"%s\",\"type\":\"time\",\"time\":3600}", deviceName, deviceId, appName, appID, userName, userID);
+	sprintf(post_count_data, "{\"deviceId\":\"%s\",\"appName\":\"%s\",\"appId\":\"%s\",\"userId\":\"%s\",\"type\":\"time\",\"time\":3600}",  deviceId, appName, appID, userID);
 
 
 	httpCtx = libcurl_httpPostFunc(post_count_path, post_count_data);
@@ -241,14 +241,18 @@ FUNC_EXIT:
 }
 
 
-int post_subscription_send(char* deviceName, char* deviceId, char* appName, char* appID, char* userName, char* userID)
+int post_subscription_send(char* deviceId, char* appName, char* appID, char* userID, char* year, char* month)
 {
 	struct HttpCtx *httpCtx = NULL;
 	int iReturn = 0;
 	char post_count_path[512] = "/dw/metering/subscription/raw";
 	//char post_count_data[512] = "{\"deviceName\":\"device1\",\"deviceId\":\"ede98537-18a7-5c7b-8581-812dc48c5c80\",\"appName\":\"Production Visualization\",\"appId\":\"8f14e45fceea167a5a36dedd4bea2543\",\"userName\":\"mirdc@iii.org.tw\",\"userId\":\"f6e98537-18b7-4c7b-8581-812dc48c5c80\",\"type\":\"count\",\"countName\":\"APInumber\",\"count\":100}";
 	char post_count_data[512] = "";
-	sprintf(post_count_data, "{\"deviceName\":\"%s\",\"deviceId\":\"%s\",\"appName\":\"%s\",\"appId\":\"%s\",\"userName\":\"%s\",\"userId\":\"%s\",\"type\":\"subscription\",\"year\":2021,\"month\":5}", deviceName, deviceId, appName, appID, userName, userID);
+
+
+
+
+	sprintf(post_count_data, "{\"deviceId\":\"%s\",\"appName\":\"%s\",\"appId\":\"%s\",\"userId\":\"%s\",\"type\":\"subscription\",\"year\":%s,\"month\":%s}",  deviceId, appName, appID,  userID, year, month);
 
 
 	httpCtx = libcurl_httpPostFunc(post_count_path, post_count_data);
@@ -265,6 +269,33 @@ FUNC_EXIT:
 
 	return iReturn;
 }
+
+
+int post_buyout_send(char* deviceId, char* appName, char* appID, char* userID)
+{
+	struct HttpCtx *httpCtx = NULL;
+	int iReturn = 0;
+	char post_count_path[512] = "/dw/metering/buyout/raw";
+	//char post_count_data[512] = "{\"deviceName\":\"device1\",\"deviceId\":\"ede98537-18a7-5c7b-8581-812dc48c5c80\",\"appName\":\"Production Visualization\",\"appId\":\"8f14e45fceea167a5a36dedd4bea2543\",\"userName\":\"mirdc@iii.org.tw\",\"userId\":\"f6e98537-18b7-4c7b-8581-812dc48c5c80\",\"type\":\"count\",\"countName\":\"APInumber\",\"count\":100}";
+	char post_count_data[512] = "";
+	sprintf(post_count_data, "{\"deviceId\":\"%s\",\"appName\":\"%s\",\"appId\":\"%s\",\"userId\":\"%s\",\"type\":\"buyout\"}",  deviceId, appName, appID,  userID);
+
+
+	httpCtx = libcurl_httpPostFunc(post_count_path, post_count_data);
+
+	if(httpCtx==NULL)
+	{
+		iReturn = _ERROR;
+		goto FUNC_EXIT;
+	}
+
+	iReturn = httpCtx->statusCode;
+
+FUNC_EXIT:
+
+	return iReturn;
+}
+
 
 
 
