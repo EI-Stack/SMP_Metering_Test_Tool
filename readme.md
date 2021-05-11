@@ -55,7 +55,7 @@ Payload內容範例 (json格式)
   "time": 3600
 }
 ```
-> OPCUA這個app使用了3600秒
+> Notepad這個app使用了3600秒
 > appName, appId, type 綁定關係請看 'app列表' 網址
 
 
