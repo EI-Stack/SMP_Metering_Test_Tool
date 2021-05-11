@@ -3,7 +3,8 @@
 
 該測試工具參考以下swagger
 - http://vmx-backend.csac.idv.tw/swagger/index.html?file=doc/smart-machine-platform.yaml#/
-app列表
+
+app列表(查找appId與appName的對應)
 - http://vmx-backend.csac.idv.tw:8080/#/app
 
 
@@ -37,6 +38,8 @@ Payload內容範例 (json格式)
 app列表
 - http://vmx-backend.csac.idv.tw:8080/#/app
 
+
+
 ## 按時收費
 POST 
 http://{IP}:{Port}/dw/metering/time/raw
@@ -55,6 +58,8 @@ Payload內容範例 (json格式)
 > OPCUA這個app使用了3600秒
 > appName, appId, type 綁定關係請看 'app列表' 網址
 
+
+
 ## 按月收費
 POST 
 http://{IP}:{Port}/dw/metering/subscription/raw
@@ -72,6 +77,8 @@ Payload內容範例 (json格式)
 }
 ```
 > appName, appId, type 綁定關係請看 'app列表' 網址
+
+
 
 ## 買斷制
 POST 
