@@ -28,10 +28,7 @@ Payload內容範例 (json格式)
 > 注意: 上述的appId、appName、type是有對應關係的, `不能亂填`
 > 如appName 'iCAM' 所對應的 appId為 '8f14e45fceea167a5a36dedd4bea2543',
 > 且appName 'iCAM'當初登記的收費方式為 '按次收費'("type": "count"), 
-> 詳細資訊都記錄在以下網址 'app列表'
-
-app列表
-- http://vmx-backend.csac.idv.tw:8080/#/app
+> 詳細資訊請上機械雲管理平台查看
 
 
 
@@ -51,5 +48,5 @@ Payload內容範例 (json格式)
 }
 ```
 > Notepad這個app使用了3600秒
-> appName, appId, type 綁定關係請看 'app列表' 網址
+> appName, appId, type 綁定關係請上機械雲管理平台查看
 
