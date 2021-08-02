@@ -14,5 +14,3 @@ struct SystemThread_t
 
 int post_count_send(char* deviceId, char* appName, char* appID, char* userID);
 int post_time_send(char* deviceId, char* appName, char* appID, char* userID);
-int post_subscription_send(char* deviceId, char* appName, char* appID, char* userID, char* year, char* month);
-int post_buyout_send(char* deviceId, char* appName, char* appID, char* userID);
